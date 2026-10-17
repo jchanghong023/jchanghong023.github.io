@@ -1,0 +1,24 @@
+{
+  "name": "coworker-tool-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "check": "node scripts/check-docs.mjs",
+    "check:site": "node scripts/check-site.mjs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "verify": "npm run format:check && npm run check && npm run build && npm run check:site"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10",
+    "vitepress": "2.0.0-alpha.20",
+    "vue": "3.5.44"
+  }
+}

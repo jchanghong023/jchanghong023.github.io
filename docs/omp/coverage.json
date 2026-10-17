@@ -1,0 +1,635 @@
+{
+  "project": "omp",
+  "label": "OMP",
+  "repository": "https://github.com/jchanghong023/oh-my-pi",
+  "revision": "ef35547399f90a68fd9b3782dd6cf3d1364f76db",
+  "sourceState": "working-tree",
+  "pages": [
+    {
+      "text": "概览",
+      "link": "/omp/"
+    },
+    {
+      "text": "安装与快速开始",
+      "link": "/omp/getting-started"
+    },
+    {
+      "text": "Fork功能与日常操作",
+      "link": "/omp/fork"
+    },
+    {
+      "text": "主目录与遥测默认值",
+      "link": "/omp/defaults-1016"
+    },
+    {
+      "text": "Linux offline与人工恢复",
+      "link": "/omp/offline-shm"
+    },
+    {
+      "text": "Team只读方案讨论",
+      "link": "/omp/team"
+    },
+    {
+      "text": "Goal无人值守目标",
+      "link": "/omp/goal-autopilot"
+    },
+    {
+      "text": "Repo代码定位",
+      "link": "/omp/repo-index"
+    },
+    {
+      "text": "OmpCode与RPC接入",
+      "link": "/omp/rpc-ui-protocol"
+    },
+    {
+      "text": "审查材料导出",
+      "link": "/omp/code-review-export"
+    }
+  ],
+  "sources": [
+    {
+      "file": "README.md",
+      "sha256": "8b1f87219a6b8d2fa442394b742435e41e16036c3a64405da7bac42656e4775f",
+      "page": "/omp/",
+      "headings": [
+        {
+          "source": "Fork 需求目录",
+          "target": "/omp/#status-boundaries"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "fork.md",
+      "sha256": "8dc0748339a53dd887cc18df70a7d80f9915ffa2ba46b084adadd7830aca28ee",
+      "page": "/omp/fork",
+      "headings": [
+        {
+          "source": "Fork 与上游差异",
+          "target": "/omp/fork#fork"
+        },
+        {
+          "source": "项目定位与使用场景",
+          "target": "/omp/fork#fork"
+        },
+        {
+          "source": "当前上游基线",
+          "target": "/omp/fork#upstream"
+        },
+        {
+          "source": "当前功能差异",
+          "target": "/omp/fork#tools-and-modes"
+        },
+        {
+          "source": "工具参数自纠正提示",
+          "target": "/omp/fork#tools-and-modes"
+        },
+        {
+          "source": "`/loop` 轮次间隔",
+          "target": "/omp/fork#loop"
+        },
+        {
+          "source": "Markdown 文档索引",
+          "target": "/omp/fork#wiki"
+        },
+        {
+          "source": "当前仓库代码定位索引",
+          "target": "/omp/repo-index#repo-index"
+        },
+        {
+          "source": "`/code-review-export` 代码审查材料导出",
+          "target": "/omp/code-review-export#code-review-export"
+        },
+        {
+          "source": "魔法关键词的内置命令与 fullsend",
+          "target": "/omp/fork#tools-and-modes"
+        },
+        {
+          "source": "`/goal-autopilot` 持续无人值守目标",
+          "target": "/omp/goal-autopilot#goal-autopilot"
+        },
+        {
+          "source": "`/team` 多代理方案讨论",
+          "target": "/omp/team#team"
+        },
+        {
+          "source": "ZCode 接入",
+          "target": "/omp/rpc-ui-protocol#rpc-ui-protocol"
+        },
+        {
+          "source": "JCH 命令",
+          "target": "/omp/fork#jch-commands"
+        },
+        {
+          "source": "Codex 用户技能",
+          "target": "/omp/fork#skills"
+        },
+        {
+          "source": "团队共享技能目录",
+          "target": "/omp/fork#skills"
+        },
+        {
+          "source": "Codex 压缩默认模型",
+          "target": "/omp/fork#profiles"
+        },
+        {
+          "source": "CodeAgent 内置模型",
+          "target": "/omp/fork#remote-agent"
+        },
+        {
+          "source": "JchTools 零配置发现与远端 Agent",
+          "target": "/omp/fork#remote-agent"
+        },
+        {
+          "source": "公司内网模型（仅 `OMP_OFFLINE`）",
+          "target": "/omp/fork#offline-models"
+        },
+        {
+          "source": "上游缺陷散点修复",
+          "target": "/omp/fork#upstream"
+        },
+        {
+          "source": "`/clear` 已结束待办清理",
+          "target": "/omp/fork#worktree-and-todo"
+        },
+        {
+          "source": "`/wt` 会话工作树",
+          "target": "/omp/fork#worktree-and-todo"
+        },
+        {
+          "source": "`/display` 界面显示模式",
+          "target": "/omp/fork#display"
+        },
+        {
+          "source": "简体中文用户界面",
+          "target": "/omp/fork#display"
+        },
+        {
+          "source": "默认设置",
+          "target": "/omp/fork#defaults"
+        },
+        {
+          "source": "快捷键与状态栏",
+          "target": "/omp/fork#display"
+        },
+        {
+          "source": "运行诊断日志",
+          "target": "/omp/fork#diagnostics"
+        },
+        {
+          "source": "安装与运行",
+          "target": "/omp/getting-started#getting-started"
+        },
+        {
+          "source": "Fork 验证体系",
+          "target": "/omp/fork#validation"
+        }
+      ],
+      "ids": ["AH-03", "AH-05", "AH-13", "E123", "ERR-123", "SHA-256", "UTF-16"]
+    },
+    {
+      "file": "新增需求1016.md",
+      "sha256": "5ca9378e908f52b029b931b7f0cebfa59e083fc24b65296a318b63cd746de526",
+      "page": "/omp/defaults-1016",
+      "headings": [
+        {
+          "source": "1016 默认行为需求",
+          "target": "/omp/defaults-1016#defaults-1016"
+        },
+        {
+          "source": "1. 默认允许主目录会话",
+          "target": "/omp/defaults-1016#home-sessions"
+        },
+        {
+          "source": "2. 默认关闭 OTLP 导出",
+          "target": "/omp/defaults-1016#otlp"
+        },
+        {
+          "source": "验收",
+          "target": "/omp/defaults-1016#verification"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "offline-shm.md",
+      "sha256": "1e41ddc0222163d39a705c656af5fdb27d17c683fb6c8794403f44ced77f4cb5",
+      "page": "/omp/offline-shm",
+      "headings": [
+        {
+          "source": "离线 shm 运行与异步备份",
+          "target": "/omp/offline-shm#offline-shm"
+        },
+        {
+          "source": "1. 目标与适用范围",
+          "target": "/omp/offline-shm#scope"
+        },
+        {
+          "source": "2. 数据范围与路径",
+          "target": "/omp/offline-shm#data-routing"
+        },
+        {
+          "source": "2.1 运行数据",
+          "target": "/omp/offline-shm#data-routing"
+        },
+        {
+          "source": "2.2 运行根与备份目录",
+          "target": "/omp/offline-shm#data-routing"
+        },
+        {
+          "source": "3. 启动与前台性能",
+          "target": "/omp/offline-shm#startup"
+        },
+        {
+          "source": "4. 后台异步备份",
+          "target": "/omp/offline-shm#schedule"
+        },
+        {
+          "source": "4.1 调度与生命周期",
+          "target": "/omp/offline-shm#schedule"
+        },
+        {
+          "source": "4.2 内容与一致性",
+          "target": "/omp/offline-shm#schedule"
+        },
+        {
+          "source": "4.3 原始目录与多进程",
+          "target": "/omp/offline-shm#generations"
+        },
+        {
+          "source": "4.4 完整版本与人工恢复",
+          "target": "/omp/offline-shm#manual-restore"
+        },
+        {
+          "source": "5. 故障与诊断",
+          "target": "/omp/offline-shm#failures"
+        },
+        {
+          "source": "6. 明确不做",
+          "target": "/omp/offline-shm#failures"
+        },
+        {
+          "source": "7. 验收条件",
+          "target": "/omp/offline-shm#validation"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "team.md",
+      "sha256": "0b8743573071d360387a56d501257526c6f19f05e168dcca7ac6bd7ace1ae8de",
+      "page": "/omp/team",
+      "headings": [
+        {
+          "source": "`/team` 多代理方案规划命令",
+          "target": "/omp/team#team"
+        },
+        {
+          "source": "1. 背景与用户目标",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "1.1 背景",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "1.2 用户目标",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "1.3 范围",
+          "target": "/omp/team#members"
+        },
+        {
+          "source": "2. 功能需求与规则",
+          "target": "/omp/team#stages"
+        },
+        {
+          "source": "2.1 功能入口与运行模式",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "2.2 参与者与模型配置",
+          "target": "/omp/team#members"
+        },
+        {
+          "source": "2.3 只读边界（机械保证）",
+          "target": "/omp/team#members"
+        },
+        {
+          "source": "2.4 编排形态：全程序化编排器",
+          "target": "/omp/team#stages"
+        },
+        {
+          "source": "2.5 固定工作流程",
+          "target": "/omp/team#stages"
+        },
+        {
+          "source": "阶段一：独立调查",
+          "target": "/omp/team#investigation"
+        },
+        {
+          "source": "阶段二：对齐与比较（后置澄清，不中断）",
+          "target": "/omp/team#alignment"
+        },
+        {
+          "source": "阶段三：交叉审查",
+          "target": "/omp/team#cross-review"
+        },
+        {
+          "source": "阶段四：修订与复核",
+          "target": "/omp/team#revision"
+        },
+        {
+          "source": "阶段五：汇总方案",
+          "target": "/omp/team#synthesis"
+        },
+        {
+          "source": "2.6 证据与关键假设",
+          "target": "/omp/team#evidence"
+        },
+        {
+          "source": "2.6.1 不混淆现状、目标和规范",
+          "target": "/omp/team#evidence"
+        },
+        {
+          "source": "2.6.2 不把意见当证据",
+          "target": "/omp/team#evidence"
+        },
+        {
+          "source": "2.6.3 关键假设必须说明状态",
+          "target": "/omp/team#evidence"
+        },
+        {
+          "source": "2.6.4 内部文档与代码仓索引检索",
+          "target": "/omp/team#evidence"
+        },
+        {
+          "source": "2.7 用户可见结果与方案选择",
+          "target": "/omp/team#results"
+        },
+        {
+          "source": "2.8 异常与结束规则",
+          "target": "/omp/team#cancellation"
+        },
+        {
+          "source": "3. 需求验收条件",
+          "target": "/omp/team#validation"
+        },
+        {
+          "source": "4. 用户用例与命令",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "4.1 按初步需求形成实现方案",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "4.2 分析问题原因",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "4.3 提出问题解决方案",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "4.4 比较设计方向",
+          "target": "/omp/team#start"
+        },
+        {
+          "source": "4.5 对方案追问或补充条件",
+          "target": "/omp/team#results"
+        },
+        {
+          "source": "5. 实现与集成约束",
+          "target": "/omp/team#stages"
+        },
+        {
+          "source": "5.1 命令与编排器",
+          "target": "/omp/team#stages"
+        },
+        {
+          "source": "5.2 审查分配与轮次",
+          "target": "/omp/team#revision"
+        },
+        {
+          "source": "5.3 只读工具集与失败处理",
+          "target": "/omp/team#cancellation"
+        },
+        {
+          "source": "5.4 取消、进度与并发",
+          "target": "/omp/team#cancellation"
+        },
+        {
+          "source": "5.5 结果落地",
+          "target": "/omp/team#results"
+        },
+        {
+          "source": "6. 验证要求",
+          "target": "/omp/team#validation"
+        },
+        {
+          "source": "7. 已知边界与已接受代价",
+          "target": "/omp/team#validation"
+        },
+        {
+          "source": "8. 验证状态",
+          "target": "/omp/team#validation"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "goal-autopilot.md",
+      "sha256": "79471fd436861e7ac2567abd69547b06adaa1ba27f433edb0cf76cf88867f422",
+      "page": "/omp/goal-autopilot",
+      "headings": [
+        {
+          "source": "`/goal-autopilot` 需求",
+          "target": "/omp/goal-autopilot#goal-autopilot"
+        },
+        {
+          "source": "1. 目标与命令",
+          "target": "/omp/goal-autopilot#commands"
+        },
+        {
+          "source": "2. 模式归属与持久化",
+          "target": "/omp/goal-autopilot#persistence"
+        },
+        {
+          "source": "3. 历史消息与重构边界",
+          "target": "/omp/goal-autopilot#history"
+        },
+        {
+          "source": "4. Orchestrate 复用与构造去重",
+          "target": "/omp/goal-autopilot#orchestrate"
+        },
+        {
+          "source": "5. 唯一新增的指令文字",
+          "target": "/omp/goal-autopilot#authorization"
+        },
+        {
+          "source": "6. 无人值守与权限边界",
+          "target": "/omp/goal-autopilot#runtime"
+        },
+        {
+          "source": "7. 验收条件",
+          "target": "/omp/goal-autopilot#validation"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "repo-index.md",
+      "sha256": "e157afa3f498344c2c5aedd20882a6cf1dd1c0497693a7a3c6b93bf0340f373c",
+      "page": "/omp/repo-index",
+      "headings": [
+        {
+          "source": "代码定位索引",
+          "target": "/omp/repo-index#repo-index"
+        },
+        {
+          "source": "环境、价值与范围",
+          "target": "/omp/repo-index#repo-index"
+        },
+        {
+          "source": "用户入口：`/repo` 内置命令",
+          "target": "/omp/repo-index#panel"
+        },
+        {
+          "source": "AI 入口：一个 `repo` 工具、三种查询",
+          "target": "/omp/repo-index#queries"
+        },
+        {
+          "source": "索引内容与实现方式",
+          "target": "/omp/repo-index#contents"
+        },
+        {
+          "source": "索引如何更新",
+          "target": "/omp/repo-index#updates"
+        },
+        {
+          "source": "日常使用与现有工具分工",
+          "target": "/omp/repo-index#workflow"
+        },
+        {
+          "source": "实现行为与验证边界",
+          "target": "/omp/repo-index#validation"
+        },
+        {
+          "source": "验收与验证入口",
+          "target": "/omp/repo-index#validation"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "rpc-ui-protocol.md",
+      "sha256": "b9f381f34bca231ea0d373b61232aba7d37fe7c119fa310d3b9556e853e2bec6",
+      "page": "/omp/rpc-ui-protocol",
+      "headings": [
+        {
+          "source": "ZCode 接入需求",
+          "target": "/omp/rpc-ui-protocol#rpc-ui-protocol"
+        },
+        {
+          "source": "多会话与消息",
+          "target": "/omp/rpc-ui-protocol#sessions"
+        },
+        {
+          "source": "权限与提问",
+          "target": "/omp/rpc-ui-protocol#permissions"
+        },
+        {
+          "source": "命令与技能",
+          "target": "/omp/rpc-ui-protocol#commands"
+        },
+        {
+          "source": "必须接入的命令",
+          "target": "/omp/rpc-ui-protocol#commands"
+        },
+        {
+          "source": "模型配置",
+          "target": "/omp/rpc-ui-protocol#models"
+        },
+        {
+          "source": "范围与验收",
+          "target": "/omp/rpc-ui-protocol#scope-and-validation"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "file": "code-review-export.md",
+      "sha256": "9f5df8f138a801e4227d6f67b312c776316980d00e7f5021973e5afffaf98320",
+      "page": "/omp/code-review-export",
+      "headings": [
+        {
+          "source": "`/code-review-export` 代码审查材料导出",
+          "target": "/omp/code-review-export#code-review-export"
+        },
+        {
+          "source": "1. 目标与边界",
+          "target": "/omp/code-review-export#code-review-export"
+        },
+        {
+          "source": "2. 命令输入与交互",
+          "target": "/omp/code-review-export#commands"
+        },
+        {
+          "source": "2.1 交互模式",
+          "target": "/omp/code-review-export#commands"
+        },
+        {
+          "source": "2.2 无交互模式",
+          "target": "/omp/code-review-export#commands"
+        },
+        {
+          "source": "3. 比较范围与冻结版本",
+          "target": "/omp/code-review-export#snapshot"
+        },
+        {
+          "source": "4. 确定性导出材料",
+          "target": "/omp/code-review-export#materials"
+        },
+        {
+          "source": "4.1 变更材料",
+          "target": "/omp/code-review-export#materials"
+        },
+        {
+          "source": "4.2 不进行上下文调查",
+          "target": "/omp/code-review-export#materials"
+        },
+        {
+          "source": "4.3 容量与限制",
+          "target": "/omp/code-review-export#limits"
+        },
+        {
+          "source": "5. ZIP 内容、指令与来源",
+          "target": "/omp/code-review-export#zip"
+        },
+        {
+          "source": "5.1 审查指令",
+          "target": "/omp/code-review-export#zip"
+        },
+        {
+          "source": "5.2 清单、计数与可追溯性",
+          "target": "/omp/code-review-export#zip"
+        },
+        {
+          "source": "6. 特殊 Git／文件状态",
+          "target": "/omp/code-review-export#special-states"
+        },
+        {
+          "source": "7. 发布、取消与失败保全",
+          "target": "/omp/code-review-export#publication"
+        },
+        {
+          "source": "8. 验收条件与当前证据",
+          "target": "/omp/code-review-export#publication"
+        }
+      ],
+      "ids": ["SHA-256", "UTF-16", "UTF-32"]
+    }
+  ]
+}
