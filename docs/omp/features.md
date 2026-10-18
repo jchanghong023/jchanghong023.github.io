@@ -2,7 +2,7 @@
 
 这里保留无人值守、显示模式、红区运行及其他 Fork 改动与优化；第一次使用请看[中文快速指南](/omp/)。
 
-企业核心功能已独立介绍：[Team 使用与编排](/omp/team) · [Wiki 企业知识库](/omp/wiki) · [Repo 代码索引](/omp/repo)。
+企业核心功能已独立介绍：[Team 讨论方案](/omp/team) · [Wiki 查资料](/omp/wiki) · [Repo 找代码](/omp/repo)。
 
 ## 无人值守 Goal {#goal}
 

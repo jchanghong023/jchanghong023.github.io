@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。Team、Wiki、Repo 各自维护完整使用指南；原 Fork 自有功能页只保留它们的入口，继续介绍 Goal、显示、红区 shm 和其他改动优化。黄区 CodeAgent 页单独说明下载和认证流程，快速指南保持简短，不恢复整份需求镜像或测试历史。
+需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。读者是使用工具的同事：说明用途、操作步骤和必要提醒，不要求理解内部实现、配置结构、工具协议或验收细则。Team、Wiki、Repo 各自成页；其他 Fork 改动优化留原页，不重复介绍。后续更新沿用这个标准。
 
 更新技能目录时，逐项读取 JCH 的 `skills/jch-*/SKILL.md` 与 `skills/dft-*/SKILL.md`，每个技能独立列出名称、功能及场景。不要执行技能或修改源仓库。可核对完整名称清单：
 

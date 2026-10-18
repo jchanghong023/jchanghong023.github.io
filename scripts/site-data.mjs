@@ -5,7 +5,7 @@ export const root = fileURLToPath(new URL('../', import.meta.url));
 export const docsRoot = resolve(root, 'docs');
 export const projectPages = [
   { text: 'OMP 快速指南', link: '/omp/' },
-  { text: 'Team 使用与编排', link: '/omp/team' },
+  { text: 'Team 方案讨论', link: '/omp/team' },
   { text: 'Wiki 企业知识库', link: '/omp/wiki' },
   { text: 'Repo 代码索引', link: '/omp/repo' },
   { text: 'OMP 自有功能', link: '/omp/features' },
