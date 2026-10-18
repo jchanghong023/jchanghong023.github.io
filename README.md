@@ -1,6 +1,6 @@
 # 研发工具简明指南
 
-面向同事的中文网站：OMP 快速指南与 Fork 自有功能、forkZcode（OmpCode）内网启动、JchTools 功能、JCH 技能目录。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
+面向同事的中文网站：OMP 快速指南、Fork 自有功能与黄区 CodeAgent 使用、forkZcode（OmpCode）内网启动、JchTools 功能、JCH 技能目录。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
 
 ## 本地维护
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。OMP 自有功能页介绍编排、检索、显示和红区性能优化，保持快速指南独立简短；不恢复需求镜像或来源覆盖矩阵。
+需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。OMP 自有功能页介绍编排、检索、显示和红区性能优化；黄区 CodeAgent 页单独说明 JchTools 下载、登录凭据维护和 OMP 内置模型使用，保持快速指南独立简短，不恢复需求镜像或来源覆盖矩阵。
 
 更新技能目录时，逐项读取 JCH 的 `skills/jch-*/SKILL.md` 与 `skills/dft-*/SKILL.md`，每个技能独立列出名称、功能及场景。不要执行技能或修改源仓库。可核对完整名称清单：
 
