@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitepress';
-import { sidebarGroups } from '../../scripts/site-data.mjs';
+import { projectPages, sidebarGroups } from '../../scripts/site-data.mjs';
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: '研发工具文档',
-  description: '面向同事的 OMP、OmpCode 与 JchTools 安装、使用和边界说明。',
+  title: '研发工具',
+  description:
+    'OMP 快速指南、forkZcode 内网启动、JchTools 功能与 JCH 技能目录。',
   base: '/',
   cleanUrls: true,
   appearance: true,
@@ -13,13 +14,7 @@ export default defineConfig({
   sitemap: { hostname: 'https://jchanghong023.github.io' },
   markdown: { theme: { light: 'github-light', dark: 'github-dark' } },
   themeConfig: {
-    nav: [
-      { text: '开始阅读', link: '/getting-started' },
-      { text: 'OMP', link: '/omp/' },
-      { text: 'OmpCode', link: '/ompcode/' },
-      { text: 'JchTools', link: '/jchtools/' },
-      { text: '来源覆盖', link: '/coverage' },
-    ],
+    nav: [{ text: '首页', link: '/' }, ...projectPages],
     sidebar: sidebarGroups(),
     aside: true,
     outline: { level: [2, 3], label: '本页目录' },

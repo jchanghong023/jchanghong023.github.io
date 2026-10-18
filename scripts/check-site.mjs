@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { extname, relative, resolve, sep } from 'node:path';
-import { docsRoot, readProjects } from './site-data.mjs';
+import { docsRoot, sitePages } from './site-data.mjs';
 import {
   decodeEntities,
   localUrl,
@@ -116,35 +116,15 @@ async function main() {
         `${from}: missing built anchor ${target}`,
       );
   }
-  const projects = readProjects();
-  for (const project of projects) {
-    for (const page of project.pages)
-      requireThat(
-        resolveFile(page.link),
-        `Missing rendered project page: ${page.link}`,
-      );
-    for (const source of project.sources)
-      for (const heading of source.headings) {
-        const url = localUrl(heading.target, '/coverage');
-        const path = url && resolveFile(url.pathname);
-        requireThat(
-          path &&
-            htmlPages.get(path)?.has(decodeURIComponent(url.hash.slice(1))),
-          `Missing rendered coverage target: ${heading.target}`,
-        );
-      }
-  }
-  requireThat(
-    byPath.has('/index.html') && byPath.has('/coverage.html'),
-    'Missing global rendered pages',
-  );
+  for (const page of sitePages)
+    requireThat(resolveFile(page.link), `Missing rendered page: ${page.link}`);
   requireThat(
     files.some((file) => /(?:localSearchIndex|local-search-index)/i.test(file)),
     'Missing generated local search index',
   );
   if (errors.length) throw new Error(errors.join('\n'));
   console.log(
-    `PASS: ${htmlPages.size} rendered HTML pages, ${files.length} output files, ${links.length} local/external references scanned; project coverage anchors resolved.`,
+    `PASS: ${htmlPages.size} rendered HTML pages, ${files.length} output files, ${links.length} local/external references scanned; page links and anchors resolved.`,
   );
 
   if (siteUrl) {

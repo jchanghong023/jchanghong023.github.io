@@ -44,16 +44,6 @@ export function sourceHeadings(markdown) {
   ].map((match) => match[1].replace(/[ \t]+#+[ \t]*$/, '').trim());
 }
 
-export function requirementIds(markdown) {
-  return [
-    ...new Set(
-      markdown.match(
-        /\b(?:[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)*-[A-Z]?\d{2,}|[A-Z]\d{2,})\b/g,
-      ) || [],
-    ),
-  ].sort();
-}
-
 export function decodeEntities(value) {
   return value.replace(
     /&(?:amp|quot|apos|lt|gt|#39|#\d+|#x[0-9a-f]+);/gi,
