@@ -5,7 +5,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: '研发工具',
   description:
-    'OMP 快速指南、forkZcode 内网启动、JchTools 功能与 JCH 技能目录。',
+    'OMP 快速指南与 Fork 自有功能、forkZcode 内网启动、JchTools 功能与 JCH 技能目录。',
   base: '/',
   cleanUrls: true,
   appearance: true,

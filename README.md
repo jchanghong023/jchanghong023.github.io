@@ -1,6 +1,6 @@
 # 研发工具简明指南
 
-面向同事的四页中文网站：OMP 快速指南、forkZcode（OmpCode）内网启动、JchTools 功能、JCH 技能目录。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
+面向同事的中文网站：OMP 快速指南与 Fork 自有功能、forkZcode（OmpCode）内网启动、JchTools 功能、JCH 技能目录。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
 
 ## 本地维护
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。只维护简明使用内容，不恢复需求镜像或来源覆盖矩阵。
+需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。OMP 自有功能页介绍编排、检索、显示和红区性能优化，保持快速指南独立简短；不恢复需求镜像或来源覆盖矩阵。
 
 更新技能目录时，逐项读取 JCH 的 `skills/jch-*/SKILL.md` 与 `skills/dft-*/SKILL.md`，每个技能独立列出名称、功能及场景。不要执行技能或修改源仓库。可核对完整名称清单：
 
@@ -28,7 +28,7 @@ npm run verify
 
 `verify` 集中检查格式、页面导航、站内链接与锚点、技能条目、公开内容边界，执行生产构建并校验全部生成页和资源。CI 无需访问本机源项目；未传 `--skills-source` 时不宣称已重新核对技能源目录。网站验证不运行产品、模型或桌面测试。
 
-构建后启动 `npm run preview`，真实浏览器检查四页内容、桌面与窄屏导航、技能表格、中文搜索、主题和代码复制。另可逐一核对 HTTP 服务的全部产物：
+构建后启动 `npm run preview`，真实浏览器检查本次新增或变更页面、桌面与窄屏导航、中文搜索和命令显示；未变页面复用既有结果。另可逐一核对 HTTP 服务的全部产物：
 
 ```sh
 npm run check:site -- --site-url http://localhost:4173/
