@@ -5,7 +5,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: '研发工具',
   description:
-    'OMP 快速指南、Fork 功能与黄区 CodeAgent、forkZcode 内网启动、JchTools 功能与 JCH 技能目录。',
+    'OMP 入门、Team 编排、Wiki 企业知识库、Repo 代码索引、Fork 优化与黄区 CodeAgent，以及 forkZcode、JchTools 和 JCH 技能。',
   base: '/',
   cleanUrls: true,
   appearance: true,
@@ -14,7 +14,14 @@ export default defineConfig({
   sitemap: { hostname: 'https://jchanghong023.github.io' },
   markdown: { theme: { light: 'github-light', dark: 'github-dark' } },
   themeConfig: {
-    nav: [{ text: '首页', link: '/' }, ...projectPages],
+    nav: [
+      { text: '首页', link: '/' },
+      {
+        text: 'OMP',
+        items: projectPages.filter((page) => page.link.startsWith('/omp/')),
+      },
+      ...projectPages.filter((page) => !page.link.startsWith('/omp/')),
+    ],
     sidebar: sidebarGroups(),
     aside: true,
     outline: { level: [2, 3], label: '本页目录' },
