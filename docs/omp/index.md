@@ -6,7 +6,7 @@ OMP 是终端里的研发助手：用中文描述任务，让它读取代码、�
 
 ## 1. 在项目目录启动 {#start}
 
-先在系统终端设置内网模式和数据根，再启动公司 IDE 与模型代理：
+**红区启动必须同时设置 `OMP_OFFLINE` 和 `OMP_CONFIG_ROOT`，缺一不可。** 先在系统终端设置，再启动公司 IDE 与模型代理：
 
 ```tcsh
 setenv OMP_OFFLINE 1
@@ -23,7 +23,7 @@ omp
 ```
 
 - OMP 复用已有 Claude Code 公司模型配置，不需要另填一份 OMP 凭据；前提是模型代理和认证已就绪。配置改动后需重启 OMP。
-- `OMP_CONFIG_ROOT` 可换成有写权限的绝对路径；换目录不会自动搬迁旧会话。
+- `OMP_CONFIG_ROOT` 必须设置。`$HOME/omp-data` 是示例，请换成管理员认可、你有写权限的持久目录，不要填 `/dev/shm`；以后启动继续使用同一路径，换目录不会自动搬迁旧会话。
 - 继续当前项目最近会话：`omp -c`。需要隔离聊天记录和设置时：`omp -P work`；继续该 profile 的最近会话：`omp -P work -c`。
 - 若团队提供共享技能，可选设置 `setenv OMP_SKILLS_DIR "/path/to/shared/skills"`，替换为实际共享目录；不使用时无需设置。
 
