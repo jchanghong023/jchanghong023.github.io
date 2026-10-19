@@ -40,13 +40,13 @@ setenv ASCEND_API_KEY "<你的密钥>"
 Windows / PowerShell：
 
 ```powershell
-$env:ASCEND_API_KEY = "<你的密钥>"
+ [Environment]::SetEnvironmentVariable("ASCEND_API_KEY", "你的key", "User")
 ```
 
 然后进入项目目录，指定模型启动：
 
 ```sh
-omp --model ascend/qwen3.8-flash-next
+omp
 ```
 
 用 `omp models ascend` 查看可选模型。**不需要登录、填写模型地址或安装 JchTools。** `ASCEND_API_KEY` 只在使用 Ascend 时设置，不依赖 `OMP_OFFLINE`，也不会自动改变已有默认模型；不要为使用 Ascend 而开启红区模式。
