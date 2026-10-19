@@ -1,10 +1,12 @@
 # OMP 中文快速指南 {#quick-start}
 
-OMP 是终端里的研发助手：用中文描述任务，让它读取代码、解释问题、修改文件并运行命令。本页面向已安装 OMP 的公司 Linux / tcsh 环境。
+OMP 是终端里的研发助手：用中文描述任务，让它读取代码、解释问题、修改文件并运行命令。本页面向已安装 OMP 的同事；Linux 命令使用 tcsh，黄区 Ascend 另附 Windows 写法。
 
 想了解无人值守、Wiki、Repo、Team、显示模式及红区性能优化，见 [Fork 自有功能](/omp/features)。
 
 ## 1. 在项目目录启动 {#start}
+
+### 红区：公司模型 {#red-zone}
 
 **红区启动必须同时设置 `OMP_OFFLINE` 和 `OMP_CONFIG_ROOT`，缺一不可。** 先在系统终端设置，再启动公司 IDE 与模型代理：
 
@@ -26,6 +28,30 @@ omp
 - `OMP_CONFIG_ROOT` 必须设置。`$HOME/omp-data` 是示例，请换成管理员认可、你有写权限的持久目录，不要填 `/dev/shm`；以后启动继续使用同一路径，换目录不会自动搬迁旧会话。
 - 继续当前项目最近会话：`omp -c`。需要隔离聊天记录和设置时：`omp -P work`；继续该 profile 的最近会话：`omp -P work -c`。
 - 若团队提供共享技能，可选设置 `setenv OMP_SKILLS_DIR "/path/to/shared/skills"`，替换为实际共享目录；不使用时无需设置。
+
+### 黄区：Ascend 模型 {#ascend}
+
+准备自己的 Ascend 密钥，在启动 OMP 的终端设置。Linux / tcsh：
+
+```tcsh
+setenv ASCEND_API_KEY "<你的密钥>"
+```
+
+Windows / PowerShell：
+
+```powershell
+$env:ASCEND_API_KEY = "<你的密钥>"
+```
+
+然后进入项目目录，指定模型启动：
+
+```sh
+omp --model ascend/qwen3.8-flash-next
+```
+
+用 `omp models ascend` 查看可选模型。**不需要登录、填写模型地址或安装 JchTools。** `ASCEND_API_KEY` 只在使用 Ascend 时设置，不依赖 `OMP_OFFLINE`，也不会自动改变已有默认模型；不要为使用 Ascend 而开启红区模式。
+
+**服务使用 HTTP 明文传输，只在公司允许的网络和资料范围内使用；不要将真实密钥提交到仓库或共享文档。** Windows 黄区也可使用 [CodeAgent](/omp/codeagent)，它与 Ascend 是两种不同用法。
 
 ## 2. 直接用中文提任务 {#first-task}
 

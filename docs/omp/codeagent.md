@@ -2,6 +2,8 @@
 
 **Windows 黄区使用：先下载 JchTools，登录公司 CodeAgent，再让 OMP 使用内置 CodeAgent 模型。** 需要能访问公司服务的网络与有效账号；不是红区 `OMP_OFFLINE` 用法。
 
+使用 Ascend 密钥的同事，直接看 [黄区 Ascend 启动步骤](/omp/#ascend)，不需要下面的 JchTools 和 CodeAgent 登录流程。
+
 ## 1. 下载 JchTools，完成登录 {#prepare}
 
 - 从 [JchTools Releases](https://github.com/jchanghong023/JchTools/releases) 下载 Windows 安装包或便携 ZIP，安装或完整解压后打开。
