@@ -1,11 +1,15 @@
 import { defineConfig } from 'vitepress';
-import { projectPages, sidebarGroups } from '../../scripts/site-data.mjs';
+import {
+  openspecSidebar,
+  projectPages,
+  sidebarGroups,
+} from '../../scripts/site-data.mjs';
 
 export default defineConfig({
   lang: 'zh-CN',
   title: '研发工具',
   description:
-    'OMP 入门、Team 编排、Wiki 企业知识库、Repo 代码索引、Fork 优化与黄区 CodeAgent，以及 forkZcode、JchTools 和 JCH 技能。',
+    'OMP 入门、Team 编排、Wiki 企业知识库、Repo 代码索引、Fork 优化与黄区 CodeAgent，以及 forkZcode、JchTools、JCH 技能和 OpenSpec 中文文档。',
   base: '/',
   cleanUrls: true,
   appearance: true,
@@ -21,8 +25,12 @@ export default defineConfig({
         items: projectPages.filter((page) => page.link.startsWith('/omp/')),
       },
       ...projectPages.filter((page) => !page.link.startsWith('/omp/')),
+      { text: 'OpenSpec', link: '/openspec/' },
     ],
-    sidebar: sidebarGroups(),
+    sidebar: {
+      '/openspec/': openspecSidebar(),
+      '/': sidebarGroups(),
+    },
     aside: true,
     outline: { level: [2, 3], label: '本页目录' },
     docFooter: { prev: '上一页', next: '下一页' },

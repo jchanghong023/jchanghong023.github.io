@@ -8,3 +8,4 @@
 | [forkZcode（OmpCode）](/ompcode/) | 图形界面在内网的最简启动方法                                                                                                                                                            |
 | [JchTools](/jchtools/)            | Windows 本地工具箱的基本功能                                                                                                                                                            |
 | [JCH](/jch/)                      | 全部 `jch-*`、`dft-*` 技能的功能与使用场景                                                                                                                                              |
+| [OpenSpec](/openspec/)            | 中文完整文档：spec 与 change 的工作方式、`/opsx:*` 斜杠命令、CLI 参考、团队协作与迁移                                                                                                   |
