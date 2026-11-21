@@ -10,7 +10,7 @@ export const projectPages = [
   { text: 'Repo 代码索引', link: '/omp/repo' },
   { text: 'OMP 自有功能', link: '/omp/features' },
   { text: '黄区 CodeAgent', link: '/omp/codeagent' },
-  { text: 'forkZcode 内网启动', link: '/ompcode/' },
+  { text: '知识库服务', link: '/rust-knowledge-server/' },
   { text: 'JchTools 功能', link: '/jchtools/' },
   { text: 'JCH 技能', link: '/jch/' },
 ];

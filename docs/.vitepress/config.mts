@@ -9,7 +9,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: '研发工具',
   description:
-    'OMP 入门、Team 编排、Wiki 企业知识库、Repo 代码索引、Fork 优化与黄区 CodeAgent，以及 forkZcode、JchTools、JCH 技能和 OpenSpec 中文文档。',
+    'OMP 入门、Team 编排、Wiki 企业知识库、Repo 代码索引、Fork 优化与黄区 CodeAgent，以及 Rust Knowledge Server、JchTools、JCH 技能和 OpenSpec 中文文档。',
   base: '/',
   cleanUrls: true,
   appearance: true,

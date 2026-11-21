@@ -1,6 +1,6 @@
 # 研发工具简明指南
 
-面向同事的中文网站：OMP 入门，Team、Wiki、Repo 三个独立企业核心指南，其他 Fork 改动与黄区 CodeAgent 使用，forkZcode（OmpCode）内网启动、JchTools 功能、JCH 技能目录，以及 OpenSpec 中文文档全量副本。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
+面向同事的中文网站：OMP 入门，Team、Wiki、Repo 三个独立企业核心指南，其他 Fork 改动与黄区 CodeAgent 使用，Rust Knowledge Server 使用、JchTools 功能、JCH 技能目录，以及 OpenSpec 中文文档全量副本。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
 
 ## 本地维护
 
