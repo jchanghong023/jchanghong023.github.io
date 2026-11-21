@@ -1,24 +1,23 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref } from 'vue';
 
-const attentive = ref(false);
+const pointerNearFox = ref(false);
+const reacting = ref(false);
 let returnTimer: ReturnType<typeof setTimeout>;
 
 function approach(event: PointerEvent) {
   if (event.pointerType === 'touch') return;
-  clearTimeout(returnTimer);
-  attentive.value = true;
+  pointerNearFox.value = true;
 }
 
 function leave(event: PointerEvent) {
-  if (event.pointerType !== 'touch') attentive.value = false;
+  if (event.pointerType !== 'touch') pointerNearFox.value = false;
 }
 
-function tap(event: PointerEvent) {
-  if (event.pointerType !== 'touch') return;
+function reactBriefly() {
   clearTimeout(returnTimer);
-  attentive.value = true;
-  returnTimer = setTimeout(() => (attentive.value = false), 1600);
+  reacting.value = true;
+  returnTimer = setTimeout(() => (reacting.value = false), 1600);
 }
 
 onBeforeUnmount(() => clearTimeout(returnTimer));
@@ -41,11 +40,11 @@ const flakes = Array.from({ length: 36 }, (_, i) => {
     <div class="scene" aria-hidden="true">
       <svg
         class="fox"
-        :class="{ attentive }"
+        :class="{ attentive: pointerNearFox || reacting }"
         viewBox="0 0 736 509"
         @pointerenter="approach"
         @pointerleave="leave"
-        @pointerup="tap"
+        @pointerup="$event.pointerType === 'touch' && reactBriefly()"
       >
         <defs>
           <radialGradient id="paw-shadow">
@@ -113,8 +112,20 @@ const flakes = Array.from({ length: 36 }, (_, i) => {
       <i v-for="(flake, i) in flakes" :key="i" :style="flake"></i>
     </div>
     <nav class="paths" aria-label="文档入口">
-      <a class="path" href="/omp/"><span lang="en">omp</span></a>
-      <a class="path" href="/rust-knowledge-server/"><span>知识库</span></a>
+      <a
+        class="path"
+        href="/omp/"
+        @mouseenter="reactBriefly"
+        @focus="reactBriefly"
+        ><span lang="en">omp</span></a
+      >
+      <a
+        class="path"
+        href="/rust-knowledge-server/"
+        @mouseenter="reactBriefly"
+        @focus="reactBriefly"
+        ><span>知识库</span></a
+      >
     </nav>
   </main>
 </template>
