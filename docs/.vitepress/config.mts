@@ -16,7 +16,11 @@ export default defineConfig({
   lastUpdated: true,
   head: [['meta', { name: 'theme-color', content: '#ffffff' }]],
   sitemap: { hostname: 'https://jchanghong023.github.io' },
-  markdown: { theme: { light: 'github-light', dark: 'github-dark' } },
+  markdown: {
+    theme: { light: 'github-light', dark: 'github-dark' },
+    codeCopyButton: { tooltipText: '复制代码', copiedText: '已复制' },
+    languageLabel: { '': '代码', powershell: 'PowerShell', text: '纯文本' },
+  },
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },

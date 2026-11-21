@@ -180,7 +180,7 @@ const flakes = Array.from({ length: 36 }, (_, i) => {
   gap: 16px;
   min-height: 68px;
   padding: 0.45em 0;
-  color: rgb(250 251 252 / 91%);
+  color: #fff;
   font-family: 'Noto Serif SC', 'Songti SC', SimSun, serif;
   font-size: clamp(32px, 3.1vw, 50px);
   font-weight: 400;
@@ -188,7 +188,6 @@ const flakes = Array.from({ length: 36 }, (_, i) => {
   letter-spacing: 0.045em;
   text-decoration: none;
   text-shadow: 0 2px 14px #0a192ab3;
-  transition: color 180ms ease;
 }
 .path + .path {
   border-top: 1px solid rgb(228 239 249 / 32%);
@@ -217,15 +216,17 @@ const flakes = Array.from({ length: 36 }, (_, i) => {
     88% 56%,
     0 56%
   );
-  opacity: 0.64;
-}
-.path:hover,
-.path:focus-visible {
-  color: #fff;
+  opacity: 0.86;
 }
 .path:hover::after,
 .path:focus-visible::after {
   opacity: 1;
+}
+.path:hover span,
+.path:focus-visible span {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 .path:focus-visible {
   outline: 2px solid #f4f8fc;
@@ -360,11 +361,6 @@ const flakes = Array.from({ length: 36 }, (_, i) => {
   .path::after {
     width: 16px;
     height: 9px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .path {
-    transition: none;
   }
 }
 </style>
