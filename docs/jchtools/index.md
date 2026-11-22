@@ -2,7 +2,7 @@
 
 Windows 本地工具箱。[下载安装包或便携版](https://github.com/jchanghong023/JchTools/releases)。
 
-在黄区配合 OMP 使用 CodeAgent，见[下载与使用步骤](/omp/codeagent)。
+在黄区配合 OMP 使用 CodeAgent，见 [OMP 黄区快速使用](/omp/#yellow-zone)。
 
 | 功能        | 能做什么                                                          |
 | ----------- | ----------------------------------------------------------------- |

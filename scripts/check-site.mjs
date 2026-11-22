@@ -2,9 +2,10 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { extname, relative, resolve, sep } from 'node:path';
-import { docsRoot, sitePages } from './site-data.mjs';
+import { sitePages } from './site-data.mjs';
 import {
   decodeEntities,
+  docsRoot,
   localUrl,
   unsafeIndicators,
   walk,

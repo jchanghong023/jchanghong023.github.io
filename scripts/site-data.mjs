@@ -1,25 +1,13 @@
-import { fileURLToPath } from 'node:url';
-import { resolve } from 'node:path';
-
-export const root = fileURLToPath(new URL('../', import.meta.url));
-export const docsRoot = resolve(root, 'docs');
-export const projectPages = [
+export const siteNavigation = [
+  { text: '首页', link: '/' },
   { text: 'OMP 快速指南', link: '/omp/' },
-  { text: 'Team 方案讨论', link: '/omp/team' },
-  { text: 'Wiki 企业知识库', link: '/omp/wiki' },
-  { text: 'Repo 代码索引', link: '/omp/repo' },
-  { text: 'OMP 自有功能', link: '/omp/features' },
-  { text: '黄区 CodeAgent', link: '/omp/codeagent' },
   { text: '知识库服务', link: '/rust-knowledge-server/' },
   { text: 'JchTools 功能', link: '/jchtools/' },
   { text: 'JCH 技能', link: '/jch/' },
+  { text: 'OpenSpec', link: '/openspec/' },
 ];
 
 export const openspecGroups = [
-  {
-    text: 'OpenSpec 文档',
-    items: [{ text: '文档首页', link: '/openspec/' }],
-  },
   {
     text: '从这里开始',
     items: [
@@ -105,20 +93,7 @@ export const openspecGroups = [
   },
 ];
 
-export const openspecPages = openspecGroups.flatMap((group) => group.items);
-
 export const sitePages = [
-  { text: '首页', link: '/' },
-  ...projectPages,
-  ...openspecPages,
+  ...siteNavigation,
+  ...openspecGroups.flatMap((group) => group.items),
 ];
-
-const guidePages = [{ text: '首页', link: '/' }, ...projectPages];
-
-export function sidebarGroups() {
-  return [{ text: '工具指南', items: guidePages }];
-}
-
-export function openspecSidebar() {
-  return openspecGroups.map((group) => ({ ...group, collapsed: false }));
-}

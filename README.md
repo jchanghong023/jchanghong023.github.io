@@ -1,6 +1,6 @@
 # 研发工具简明指南
 
-面向同事的中文网站：OMP 入门，Team、Wiki、Repo 三个独立企业核心指南，其他 Fork 改动与黄区 CodeAgent 使用，Rust Knowledge Server 使用、JchTools 功能、JCH 技能目录，以及 OpenSpec 中文文档全量副本。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
+面向同事的中文网站，收录 OMP 内网快启、Rust Knowledge Server README、JchTools 功能、JCH 技能目录和 OpenSpec 中文文档。发布于 <https://jchanghong023.github.io/>，使用 VitePress 默认主题。
 
 ## 本地维护
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-需求见 `requirements/website.md`；内容在 `docs/`，导航与侧栏共用 `scripts/site-data.mjs` 的页面清单。读者是使用工具的同事：说明用途、操作步骤和必要提醒，不要求理解内部实现、配置结构、工具协议或验收细则。Team、Wiki、Repo 各自成页；其他 Fork 改动优化留原页，不重复介绍。OpenSpec 文档整目录收录，保持原文，只补锚点与链接修正。后续更新沿用这个标准。
+需求见 `requirements/website.md`。正文在 `docs/`，左侧站点导航和右侧 OpenSpec 文章列表共用 `scripts/site-data.mjs` 的页面清单。更新 OMP 和知识库时，分别使用源仓库的 `docs-zh-CN/quick-start-intranet.md` 和 `README.md`。这两份文档和 OpenSpec 副本保留源文措辞，只调整站点所需的锚点、链接和格式。
 
 更新技能目录时，逐项读取 JCH 的 `skills/jch-*/SKILL.md` 与 `skills/dft-*/SKILL.md`，每个技能独立列出名称、功能及场景。不要执行技能或修改源仓库。可核对完整名称清单：
 

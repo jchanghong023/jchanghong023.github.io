@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { resolve, relative, sep } from 'node:path';
-import { docsRoot, sitePages } from './site-data.mjs';
+import { sitePages } from './site-data.mjs';
 import {
+  docsRoot,
   documentAnchors,
   localUrl,
   markdownLinks,

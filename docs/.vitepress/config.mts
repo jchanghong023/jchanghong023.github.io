@@ -1,15 +1,11 @@
 import { defineConfig } from 'vitepress';
-import {
-  openspecSidebar,
-  projectPages,
-  sidebarGroups,
-} from '../../scripts/site-data.mjs';
+import { siteNavigation } from '../../scripts/site-data.mjs';
 
 export default defineConfig({
   lang: 'zh-CN',
   title: '研发工具',
   description:
-    'OMP 入门、Team 编排、Wiki 企业知识库、Repo 代码索引、Fork 优化与黄区 CodeAgent，以及 Rust Knowledge Server、JchTools、JCH 技能和 OpenSpec 中文文档。',
+    'OMP 中文快速指南、Rust Knowledge Server、JchTools、JCH 技能及 OpenSpec 中文文档。',
   base: '/',
   cleanUrls: true,
   appearance: true,
@@ -18,31 +14,23 @@ export default defineConfig({
   sitemap: { hostname: 'https://jchanghong023.github.io' },
   markdown: {
     theme: { light: 'github-light', dark: 'github-dark' },
+    languageAlias: { tcsh: 'shellscript' },
     codeCopyButton: { tooltipText: '复制代码', copiedText: '已复制' },
     languageLabel: { '': '代码', powershell: 'PowerShell', text: '纯文本' },
   },
+  transformPageData({ relativePath, frontmatter }) {
+    if (relativePath.startsWith('openspec/')) frontmatter.aside = true;
+  },
   themeConfig: {
-    nav: [
-      { text: '首页', link: '/' },
-      {
-        text: 'OMP',
-        items: projectPages.filter((page) => page.link.startsWith('/omp/')),
-      },
-      ...projectPages.filter((page) => !page.link.startsWith('/omp/')),
-      { text: 'OpenSpec', link: '/openspec/' },
-    ],
-    sidebar: {
-      '/openspec/': openspecSidebar(),
-      '/': sidebarGroups(),
-    },
-    aside: true,
-    outline: { level: [2, 3], label: '本页目录' },
-    docFooter: { prev: '上一页', next: '下一页' },
+    sidebar: [{ text: '站点导航', items: siteNavigation }],
+    aside: false,
+    outline: false,
+    docFooter: { prev: false, next: false },
     lastUpdated: { text: '文档更新于', formatOptions: { dateStyle: 'long' } },
     darkModeSwitchLabel: '外观',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
-    sidebarMenuLabel: '文档目录',
+    sidebarMenuLabel: '站点导航',
     returnToTopLabel: '返回顶部',
     skipToContentLabel: '跳转到正文',
     externalLinkIcon: true,
