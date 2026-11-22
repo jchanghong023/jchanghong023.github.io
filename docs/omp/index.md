@@ -10,8 +10,8 @@
 
 ## 3. 下载 {#download}
 
-- CNB：优先下载，发布更快。`https://cnb.cool/jchanghong/bin/-/releases`
-- GitHub：定期同步。`https://github.com/jchanghong023/oh-my-pi/releases`
+- [CNB 下载](https://cnb.cool/jchanghong/bin/-/releases)：优先下载，发布更快。
+- [GitHub Releases](https://github.com/jchanghong023/oh-my-pi/releases)：定期同步。
 
 ## 4. 红区快速使用 {#red-zone}
 

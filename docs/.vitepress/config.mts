@@ -20,13 +20,22 @@ export default defineConfig({
   },
   transformPageData({ relativePath, frontmatter }) {
     if (relativePath.startsWith('openspec/')) frontmatter.aside = true;
+    if (
+      relativePath === 'omp/index.md' ||
+      relativePath === 'rust-knowledge-server/index.md'
+    ) {
+      frontmatter.aside = 'left';
+      frontmatter.pageClass = 'guide-layout';
+    } else {
+      frontmatter.outline ??= false;
+    }
   },
   themeConfig: {
     nav: siteNavigation,
     navMenuLabel: '站点导航',
     mobileMenuLabel: '站点导航',
     aside: false,
-    outline: false,
+    outline: { level: 2, label: '本页目录' },
     docFooter: { prev: false, next: false },
     lastUpdated: { text: '文档更新于', formatOptions: { dateStyle: 'long' } },
     darkModeSwitchLabel: '外观',
