@@ -1,4 +1,10 @@
-/* Type and spacing for the default theme's article pages. */
+/* Type, spacing and surfaces for the default theme's article pages. */
+:root:not(.dark) .VPContent:has(> .VPDoc) {
+  --vp-c-bg: #fafaf8;
+  --vp-code-block-bg: #f1f1ee;
+  background-color: var(--vp-c-bg);
+}
+
 @media (min-width: 60rem) {
   .VPContent .VPDoc:not(.has-sidebar) > .container {
     max-width: 76rem;
@@ -14,6 +20,7 @@
 }
 
 .vp-doc {
+  --vp-code-color: var(--vp-c-text-1);
   font-size: 1.0625rem;
   line-height: 1.85;
   overflow-wrap: anywhere;
@@ -29,7 +36,8 @@
 }
 
 .vp-doc h2 {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
+  padding-top: 1.125rem;
 }
 
 .vp-doc h3 {
@@ -48,9 +56,25 @@
   color: var(--vp-c-text-1);
 }
 
+:root:not(.dark) .vp-doc th {
+  background-color: #eeefec;
+}
+
 @media (width < 40rem) {
   .vp-doc :is(th, td) {
     min-width: 6.5rem;
+  }
+
+  .vp-doc td:has(> code:first-child) {
+    min-width: 12rem;
+  }
+
+  .vp-doc td:has(> code:first-child + code) {
+    min-width: 16rem;
+  }
+
+  .vp-doc td code {
+    white-space: nowrap;
   }
 }
 
