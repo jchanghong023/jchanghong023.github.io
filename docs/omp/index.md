@@ -2,20 +2,20 @@
 
 ## 1. 与上游的差异和贡献 {#upstream}
 
-截至 2026-11-22，[本 Fork](https://github.com/jchanghong023/oh-my-pi) 的 `main`（`28fdf1a48d`）比[上游](https://github.com/can1357/oh-my-pi) `main`（`e1a9f4b41d`）领先 **1,573 个提交**（含合并提交），落后 0 个。`jchanghong023` 向上游提交了 [**81 个 PR**](https://github.com/can1357/oh-my-pi/pulls?q=is%3Apr+author%3Ajchanghong023)。
+截至 2026-11-22，本 Fork 的 `main`（`28fdf1a48d`）比上游 `main`（`e1a9f4b41d`）领先 **1,573 个提交**（含合并提交），落后 0 个。`jchanghong023` 向上游提交了 **81 个 PR**。
 
 ## 2. 项目哲学 {#philosophy}
 
-做一个个人开箱即用的 Agent：从红区 CentOS 7 到黄区 Windows 和自己的 Linux 机器，都用同一个 OMP。**默认零配置**：模型服务和凭据就绪后，无需手写 OMP 配置文件。
+做一个个人开箱即用的 Agent：从红区 CentOS 7 到黄区 Windows 和自己的 Linux 机器，都用同一个 OMP。**默认零配置**：无需手写 OMP 配置文件，红区特殊环境优化。
 
 ## 3. 下载 {#download}
 
-- [CNB Releases](https://cnb.cool/jchanghong/bin/-/releases)：优先下载，发布更快。
-- [GitHub Releases](https://github.com/jchanghong023/oh-my-pi/releases)：定期同步。
+- CNB：优先下载，发布更快。`https://cnb.cool/jchanghong/bin/-/releases`
+- GitHub：定期同步。`https://github.com/jchanghong023/oh-my-pi/releases`
 
 ## 4. 红区快速使用 {#red-zone}
 
-在 CentOS 7 上将 `omp-linux-x64` 安装为 `PATH` 上的 `omp`。红区必配 `OMP_OFFLINE` 和 `OMP_CONFIG_ROOT`；在 tcsh 中执行，代理就绪后再运行 `omp`：
+在 CentOS 7 上将 `omp-linux-x64` 安装为 `PATH` 上的 `omp`。红区必配 `OMP_OFFLINE` 和 `OMP_CONFIG_ROOT`：下面两行 `setenv` 可放入 `.cshrc`，其余命令在 tcsh 终端执行。代理就绪后再运行 `omp`：
 
 ```tcsh
 setenv OMP_OFFLINE 1
@@ -28,15 +28,14 @@ omp
 
 ### 环境变量与数据 {#environment}
 
-- `OMP_CONFIG_ROOT`：持久数据目录，存放配置、凭据和会话；可换成其他可写的绝对路径，旧数据不会自动迁移。
-- `OMP_CACHE_DIR`：可选性能目录；红区 Linux 默认使用 `/dev/shm/omp-<UID>`，缓存、统计、日志和运行依赖可能在重启后丢失，不放唯一副本。
-- `OMP_SKILLS_DIR`：可选团队共享技能目录，例如 `setenv OMP_SKILLS_DIR "/path/to/shared/skills"`；用 `/extensions` 查看或启停共享技能，不改共享文件。
+- `OMP_CONFIG_ROOT`：持久数据目录，存放配置、凭据和会话。
+- `OMP_CACHE_DIR`：可选性能目录；红区 Linux 默认使用 `/dev/shm/omp-<UID>`，缓存、统计、日志和运行依赖直接存内存，而不是网络磁盘。
+- `OMP_SKILLS_DIR`：可选团队共享技能目录；用 `/extensions` 查看或启停共享技能，不改共享文件。
 
-红区模式会暂时关闭 Web Search、Browser（含 `/crawl`）、AST Edit 和 Fetch；本地文件和已配置、可达的内网服务仍可使用。[更多运行约定](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/fork-runtime/spec.md)
+红区模式会暂时关闭 Web Search、Browser（含 `/crawl`）和 Fetch；本地文件和已配置、可达的内网服务仍可使用。
 
 ## 5. 黄区快速使用 {#yellow-zone}
 
-- `OMP_OFFLINE`：不设置。
 - `OMP_CONFIG_ROOT`：可选，指定持久数据目录。
 - `ASCEND_API_KEY`：仅使用 Ascend 时设置。
 
@@ -44,28 +43,56 @@ omp
 
 ### 启动与交互 {#startup}
 
-- **更轻的启动与红区 NFS 优化**：在上游基础上省掉默认更新检查、延后 Python 检查；红区把高频缓存移到 `/dev/shm`，减少目录扫描和终端重绘。[运行规格](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/fork-runtime/spec.md)
-- **中文终端与三种显示模式**：常用设置、模型选择和授权界面用中文；`/display clean` 专注聊天，`/display compact`（默认）显示活动与本轮 Diff，`/display detailed` 查看完整工具记录。[界面规格](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/tui-presentation/spec.md)
-- **内网群聊**：主持人 `/collab2 1234`，同事 `/collab2 join 1234`，多人向同一个 Agent 发消息；跨机时各端 `OMP_COLLAB2_IP` 填同一个配套知识库服务的 IP（端口 `9333`），仅限可信隔离内网。来宾用 `/leave` 退出，主持人用 `/collab2 stop` 关房。
+- **启动提速与红区 NFS 优化**：在上游已经很快的基础上继续减少启动等待，并针对红区 NFS 优化交互响应。
+- **中文终端与三种显示模式**：常用设置、模型选择和授权界面用中文；`/display clean` 专注聊天，`/display compact`（默认）显示活动与本轮 Diff，`/display detailed` 查看完整工具记录。
+- **内网群聊**：用 `/collab2 1234` 开房、`/collab2 join 1234` 加入，多人可向同一个 Agent 发消息。
+- **危险操作确认**：用 `omp --approval-mode guarded` 启动，普通工具调用自动放行，工具标记的危险操作仍需确认。
+- **中文语音输入**：语音转写默认使用中文。
+- **LSP 按需启用**：默认关闭；有可用语言服务器时，用 `omp config set lsp.enabled true` 开启定义、引用和诊断查询。
 
 ### 内置开源工具与技能 {#tools-and-skills}
 
-- **[OpenSpec](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/spec-driven-orchestration/spec.md)**：无需另装工具，用 `omp openspec init` 初始化项目，再用 `/skill:openspec-propose` 把需求变成可评审、可实施的变更，产物正文默认用中文。
-- **[OpenWiki](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/openwiki/spec.md)**：在仓库运行 `omp openwiki code --init` 生成中文代码 Wiki，之后用 `omp openwiki code --update` 更新；聊天里可查已有 Wiki，再核对关键源码。
-- **Superpowers 与常用技能**：用 `/skill:brainstorming` 梳理方案、`/skill:jch-grill-me` 追问澄清、`/skill:jch-grill-todo` 生成任务清单、`/skill:jch-codebase-design` 讨论接口和模块设计。
+- **OpenSpec**：内置需求管理，用 `omp openspec init` 初始化项目，再用 `/skill:openspec-propose` 起草变更。
+- **OpenWiki**：用 `omp openwiki code --init` 生成中文代码 Wiki，之后可以直接在聊天里问项目架构。
+- **Superpowers**：内置开源开发工作流，用 `/skill:brainstorming` 梳理方案。
+- **测试插件（Developer Test Agent）**：用 `/dt` 生成或修复 Python、Java、C/C++ 和 Go 单元测试。
+- **复用 Codex 技能**：默认发现已有的 Codex 用户技能，无需复制。
+- **内置记忆**：红区启用记忆后可直接复用公司向量模型，无需另配。
 
 ### 多代理与无人值守 {#multi-agent}
 
-- **[Team](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/team-discussion/spec.md)**：`/team 比较两种可行方案并给出证据`，让多个代理独立调查、交叉审查并汇总，只读不实施；用 `/team configure` 选成员模型。
-- **[Goal Autopilot](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/goal-autopilot/spec.md)**：退出计划模式后，用 `/goal-autopilot 按清单实施并完成必要验证` 运行长任务；用 `/goal-autopilot pause` 暂停，不绕过工具权限或预算。
-- **按清单执行**：先用 `/todoloop tasks.md --check` 预检，再用 `/todoloop tasks.md` 按组执行 Markdown 待办；按 `Esc` 停止，已完成项保留。
-- **按需编排**：`/orchestrate 拆分独立任务并行实现并统一验证` 分派子代理，`/workflowz 按模块并行调查并汇总证据` 组织批量工作，`/ultrathink 分析故障根因` 先做深入分析。
+- **Team**：用 `/team <需求>` 发起多代理独立调查和交叉评审，只讨论方案，不改代码。
+- **Goal Autopilot**：用 `/goal-autopilot <目标>` 运行无人值守长任务，自动审批，自动回答AI问题。
+- **按清单执行**：用 `/todoloop tasks.md` 按组执行 Markdown 待办。
+- **按需编排**：`/orchestrate` 拆解并分派任务，`/workflowz` 组织批量工作，`/ultrathink` 深入分析。
 
-### 其他常用入口 {#other-commands}
+### 个人内置技能与命令 {#other-commands}
 
-- **两区通用**：`omp -c` 续会话，`omp -P work` 用独立档案；`/` 找命令，`@` 找文件，`Ctrl+T` 换模型，`Shift+Tab` 进计划模式；终端可用 `omp read ./README.md` 读取文件。
-- **内置单测和画布**：`/dt` 生成或修复单测；`/sketch` 手绘或贴图标注后添加为附件，红区需手动打开显示的完整地址。
-- **工作区和循环**：`/workspace` 提醒 Agent 限定写入范围（不是沙箱），`/minimal` 要求最小改动和验证，`/loopn "检查" "复核"` 轮换提示词（`Esc` 停止）；Linux IBus/X11 输入异常可试 `/jchime`。[命令规格](https://github.com/jchanghong023/oh-my-pi/blob/main/openspec/specs/personal-commands/spec.md)
-- **沿用上游的入口**：`/advisor on` 开启第二模型复审；`/loop 2 检查当前改动` 首轮后最多再跑两轮（`Esc` 暂停，再输 `/loop` 关闭）；`/goal 修复当前项目的构建错误` 设置普通目标（`/goal pause` 暂停）。
+- **需求与设计**：`/skill:jch-grill-me` 澄清需求，`/skill:jch-grill-todo` 生成任务清单，`/skill:jch-codebase-design` 设计模块与接口。
+- **大仓审查**：`/skill:big-review-scan` 把仓库或 Fork 改动拆分初审，`/skill:big-review-verify` 对照源码复核发现。
+- **独立使用档案**：用 `omp -P work` 启动，隔离配置和会话。
+- **画布**：用 `/sketch` 手绘或贴图标注后添加为附件。
+- **控制改动**：`/minimal` 要求最小充分改动和验证；`/workspace` 提醒 Agent 限定写入范围，不是沙箱。
+- **切换工作树**：`/wt <分支>` 切换会话工作树，不搬动或清理未提交的改动。
+- **网页转 Markdown**：`/crawl <URL>` 不调用模型，直接爬内网保存网页内容。
+- **循环与输入法**：`/loopn "检查" "复核"` 轮换提示词（`Esc` 停止）；`/jchime` 排查 Linux IBus/X11 中文输入问题。
 
-浏览器聊天沿用上游：[原生 `/collab`](https://github.com/jchanghong023/oh-my-pi/blob/main/docs/collab.md#web-client) 可通过邀请链接让浏览器加入已有会话，[Chrome 侧栏](https://github.com/jchanghong023/oh-my-pi/blob/main/packages/browser-relay/README.md#setup)也能发起聊天；本 Fork 已移除独立 WebGUI，`/collab2` 是终端入口。
+## 7. 上游常用快捷键和内置命令 {#upstream-shortcuts}
+
+快捷键按本 Fork 的默认绑定列出。
+
+- `Esc`：中断当前任务。
+- `Esc Esc`：输入框为空时打开对话回退面板。
+- `Ctrl+T`：临时切换当前会话的模型。
+- `Shift+Tab`：切换计划模式。
+- `Ctrl+O`：展开或收起改动或工具详情。
+- `Ctrl+Q`：将后续消息加入队列。
+- `Ctrl+R`：搜索历史提示词。
+- `Alt+E`：切换模型的思考等级。
+- `← ←`：输入框为空时连按两次左方向键，打开子代理面板；在子代理视图中返回主会话。
+- `@`：搜索并引用项目文件。
+- `/new`：新建会话。
+- `/resume`：恢复历史会话。
+- `/tree`：查看并切换当前会话的分支。
+- `/rename <标题>`：给当前会话改名。
+- `/copy`：从对话中选择文字或代码复制。
