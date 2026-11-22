@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-需求见 `requirements/website.md`。正文在 `docs/`，左侧站点导航和右侧 OpenSpec 文章列表共用 `scripts/site-data.mjs` 的页面清单。更新 OMP 和知识库时，分别使用源仓库的 `docs-zh-CN/quick-start-intranet.md` 和 `README.md`。这两份文档和 OpenSpec 副本保留源文措辞，只调整站点所需的锚点、链接和格式。
+需求见 `requirements/website.md`。正文在 `docs/`，顶部站点导航和右侧 OpenSpec 文章列表共用 `scripts/site-data.mjs` 的页面清单。更新 OMP 和知识库时，分别使用源仓库的 `docs-zh-CN/quick-start-intranet.md` 和 `README.md`。这两份文档和 OpenSpec 副本保留源文措辞，只调整站点所需的锚点、链接和格式。
 
 更新技能目录时，逐项读取 JCH 的 `skills/jch-*/SKILL.md` 与 `skills/dft-*/SKILL.md`，每个技能独立列出名称、功能及场景。不要执行技能或修改源仓库。可核对完整名称清单：
 

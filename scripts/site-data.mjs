@@ -4,7 +4,7 @@ export const siteNavigation = [
   { text: '知识库服务', link: '/rust-knowledge-server/' },
   { text: 'JchTools 功能', link: '/jchtools/' },
   { text: 'JCH 技能', link: '/jch/' },
-  { text: 'OpenSpec', link: '/openspec/' },
+  { text: 'OpenSpec', link: '/openspec/', activeMatch: '^/openspec/' },
 ];
 
 export const openspecGroups = [

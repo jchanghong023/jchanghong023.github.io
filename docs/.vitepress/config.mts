@@ -22,7 +22,9 @@ export default defineConfig({
     if (relativePath.startsWith('openspec/')) frontmatter.aside = true;
   },
   themeConfig: {
-    sidebar: [{ text: '站点导航', items: siteNavigation }],
+    nav: siteNavigation,
+    navMenuLabel: '站点导航',
+    mobileMenuLabel: '站点导航',
     aside: false,
     outline: false,
     docFooter: { prev: false, next: false },
@@ -30,7 +32,6 @@ export default defineConfig({
     darkModeSwitchLabel: '外观',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
-    sidebarMenuLabel: '站点导航',
     returnToTopLabel: '返回顶部',
     skipToContentLabel: '跳转到正文',
     externalLinkIcon: true,

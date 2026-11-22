@@ -1,6 +1,16 @@
 /* Type and spacing for the default theme's article pages. */
-.VPDoc.has-sidebar:not(.has-aside) .content-container {
-  max-width: 48rem;
+@media (min-width: 60rem) {
+  .VPContent .VPDoc:not(.has-sidebar) > .container {
+    max-width: 76rem;
+  }
+
+  .VPContent .VPDoc:not(.has-sidebar) > .container > .content {
+    max-width: 60rem;
+  }
+}
+
+.VPDoc.has-aside > .container > .content > .content-container {
+  max-width: 56rem;
 }
 
 .vp-doc {
@@ -94,37 +104,14 @@
   opacity: 1;
 }
 
-/* Keep the current page easy to spot in the sidebar. */
-.VPSidebarItem > .item > .link {
-  min-height: 2.25rem;
-  margin-inline: -0.5rem;
-  padding-inline: 0.5rem;
-  border-radius: 0.375rem;
-}
-
-.VPSidebarItem > .item > .link[aria-current='page'] {
-  background-color: var(--vp-c-brand-soft);
-}
-
-.VPSidebarItem > .item > .link[aria-current='page'] > .text {
-  color: var(--vp-c-brand-1);
-  font-weight: 600;
-}
-
-.VPLocalNav :is(.menu, .VPLocalNavOutlineDropdown > button) {
+.VPLocalNav .VPLocalNavOutlineDropdown > button {
   font-size: 0.875rem;
   line-height: 1.5;
   min-height: 2.75rem;
   color: var(--vp-c-text-1);
 }
 
-:is(.VPSidebar, .VPLocalNav, .VPDoc) :is(a, button):focus-visible {
+:is(.VPNav, .VPLocalNav, .VPDoc) :is(a, button):focus-visible {
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 2px;
-}
-
-@media (width < 60rem) {
-  .VPSidebarItem > .item > :is(.link, .caret) {
-    min-height: 2.75rem;
-  }
 }
