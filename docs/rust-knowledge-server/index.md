@@ -32,7 +32,7 @@ Rust Knowledge Server 是面向内网的 Markdown 技术知识库。通过 Web �
 
 数据保存在 `/dev/shm/rust-knowledge-server`，重启服务保留，**重启机器清空**。请另存原始 Markdown。
 
-本机 Web 地址：<http://127.0.0.1:9333/>。
+本机 Web 地址：<http://10.239.93.104:9333/>。
 
 ## Web {#web}
 
@@ -53,13 +53,13 @@ Rust Knowledge Server 是面向内网的 Markdown 技术知识库。通过 Web �
 **Claude Code**（在项目终端运行）：
 
 ```sh
-claude mcp add --transport http knowledge http://127.0.0.1:9333/mcp
+claude mcp add --transport http knowledge http://10.239.93.104:9333/mcp
 ```
 
 **OMP**：配套版本无需配置；其他版本在 OMP 会话内输入：
 
 ```text
-/mcp add knowledge --url http://127.0.0.1:9333/mcp
+/mcp add knowledge --url http://10.239.93.104:9333/mcp
 ```
 
 远程部署时，两个命令中的地址都换成服务的实际 `/mcp` 地址。
@@ -75,5 +75,7 @@ claude mcp add --transport http knowledge http://127.0.0.1:9333/mcp
 3. A 输入 `/collab2 stop` 或切换会话后，旧房间不能再加入。
 
 同机无需配置，OMP 默认连接 `127.0.0.1:9333`。跨机时，三人在启动 OMP 前都将 `OMP_COLLAB2_IP` 设为知识库的同一个内网 IP，端口仍是 `9333`。
+
+OMP_OFFLINE 环境变量下，默认为10.239.93.104
 
 知识库 Web、MCP 和房间查询用 HTTP，协作用 WS，无需 HTTPS 或证书。只在可信隔离内网使用，并只把房间号分享给信任的同事。
